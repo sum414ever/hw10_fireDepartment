@@ -1,4 +1,4 @@
-public class WorkFireDepartment {
+public class FireDepartmentRunner {
 
     public static void run() {
 

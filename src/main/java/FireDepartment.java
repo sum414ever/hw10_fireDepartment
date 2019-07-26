@@ -1,32 +1,33 @@
 public class FireDepartment {
 
-    private int countOfCall = 0;
+    private int calls = 0;
 
     public synchronized void extinguishTheFire() {
 
-        while (countOfCall < 1) {
+        while (calls < 1) {
             try {
                 wait();
             } catch (InterruptedException e) {
             }
         }
-        countOfCall--;
+        calls--;
         System.out.println("The fireman put out the fire");
-        System.out.println("The active fire is: " + countOfCall);
+        System.out.println("The active fire is: " + calls);
         notify();
     }
 
-    public synchronized void sendACall() {
+    public synchronized void acceptCall() {
 
-        while (countOfCall >= 1) {
+        while (calls >= 1) {
             try {
                 wait();
             } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
-        countOfCall++;
+        calls++;
         System.out.println("Received a call about the fire");
-        System.out.println("The active fire is: " + countOfCall);
+        System.out.println("The active fire is: " + calls);
         notify();
     }
 }

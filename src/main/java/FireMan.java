@@ -1,10 +1,9 @@
 public class FireMan implements Runnable {
 
-    FireDepartment fireDepartment;
-    String name;
+    public FireDepartment fireDepartment;
+    private String name;
 
     FireMan(FireDepartment workFireDepartment, String name) {
-
         this.fireDepartment = workFireDepartment;
         this.name = name;
     }
